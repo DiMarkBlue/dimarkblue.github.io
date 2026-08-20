@@ -13,6 +13,111 @@
   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700&family=Playfair+Display:wght@600;700&display=swap"
   rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <!-- Google Analytics 4 · loaded only after analytics consent -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    const GA_MEASUREMENT_ID = 'G-YY02YNN5BZ';
+
+    function loadGoogleAnalytics() {
+      if (window.__gaLoaded) return;
+      window.__gaLoaded = true;
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+      document.head.appendChild(script);
+
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID);
+    }
+
+    // If consent was previously accepted, Analytics can load immediately.
+    if (localStorage.getItem('analytics_consent') === 'accepted') {
+      loadGoogleAnalytics();
+    }
+  </script>
+
+  <style>
+    /* Fix: avoid the duplicated horizontal line at the end of Projects */
+    .projects-section .project-card:last-child {
+      border-bottom: none !important;
+    }
+
+    /* Analytics consent banner */
+    .analytics-consent {
+      position: fixed;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      z-index: 9999;
+      display: none;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 18px 20px;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      background: #17212b;
+      color: #fbfaf7;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+      font-family: "Inter", sans-serif;
+    }
+
+    .analytics-consent.is-visible {
+      display: flex;
+    }
+
+    .analytics-consent p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 520px;
+    }
+
+    .analytics-consent-actions {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .analytics-consent button {
+      border: 1px solid rgba(255,255,255,.55);
+      background: transparent;
+      color: #fbfaf7;
+      padding: 9px 14px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+    }
+
+    .analytics-consent button[data-consent="accept"] {
+      background: #fbfaf7;
+      color: #17212b;
+      border-color: #fbfaf7;
+    }
+
+    @media (max-width: 680px) {
+      .analytics-consent {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .analytics-consent-actions {
+        width: 100%;
+      }
+
+      .analytics-consent button {
+        flex: 1;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -26,6 +131,7 @@
         <a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a>
         <a href="#journey" data-es="Trayectoria" data-en="Journey">Trayectoria</a>
         <a href="#education" data-es="Formación" data-en="Education">Formación</a>
+        <a href="#how-i-work" data-es="Cómo trabajo" data-en="How I work">Cómo trabajo</a>
         <a href="#littleblau" data-es="Más allá" data-en="Beyond data">Más allá</a>
         <a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a>
         <div class="lang-switch" aria-label="Language selector">
@@ -348,7 +454,6 @@
                 toma de decisiones.</p>
             </div>
           </div>
-          <a class="scroll-cue" href="#about"><span data-es="Descubre mi trayectoria" data-en="Discover my journey">Descubre mi trayectoria</span><span class="scroll-arrow">↓</span></a>
         </div>
       
         <div class="section-nav">
@@ -412,12 +517,12 @@
       
         <div class="section-nav">
           <a href="#journey" class="section-nav-link" data-es="← Trayectoria" data-en="← Journey">← Trayectoria</a>
-          <a href="#littleblau" class="section-nav-link" data-es="Más allá →" data-en="Beyond data →">Más allá →</a>
+          <a href="#how-i-work" class="section-nav-link" data-es="Cómo trabajo →" data-en="How I work →">Cómo trabajo →</a>
         </div>
 </div>
     </section>
 
-    <section class="section section-screen statement theme-ink" data-section="07">
+    <section id="how-i-work" class="section section-screen statement theme-ink" data-section="07">
       <div class="container statement-box">
         <p class="section-kicker" data-es="CÓMO TRABAJO" data-en="HOW I WORK">CÓMO TRABAJO</p>
         <h2 data-es="No veo el reporting como un dashboard. Lo veo como un sistema para tomar decisiones."
@@ -449,14 +554,14 @@
           <p data-es="Little Blau es un proyecto personal nacido de una idea propia y desarrollado como un pequeño universo infantil. El concepto, la estructura, los formatos de los libros y las decisiones creativas parten de mí; la tecnología y la IA me permiten reducir enormemente el tiempo necesario para convertir esas ideas en algo tangible." data-en="Little Blau is a personal project born from my own idea and developed as a small children’s universe. The concept, structure, book formats and creative decisions come from me; technology and AI allow me to dramatically reduce the time needed to turn those ideas into something tangible.">Little Blau es un proyecto personal nacido de una idea propia y desarrollado como un pequeño universo infantil. El concepto, la estructura, los formatos de los libros y las decisiones creativas parten de mí; la tecnología y la IA me permiten reducir enormemente el tiempo necesario para convertir esas ideas en algo tangible.</p>
           <p data-es="Herramientas que antes habrían requerido mucho más tiempo o diferentes perfiles especializados pueden hoy acelerar tareas como edición, maquetación, traducción o iteración creativa. Para mí, la IA no sustituye la creatividad ni la decisión humana: actúa como un acelerador que permite experimentar, aprender y materializar proyectos mucho más rápido." data-en="Tasks that would previously have required considerably more time or several specialised profiles can now be accelerated through tools that support editing, layout, translation and creative iteration. For me, AI does not replace creativity or human decision-making: it acts as an accelerator that makes it possible to experiment, learn and bring projects to life much faster.">Herramientas que antes habrían requerido mucho más tiempo o diferentes perfiles especializados pueden hoy acelerar tareas como edición, maquetación, traducción o iteración creativa. Para mí, la IA no sustituye la creatividad ni la decisión humana: actúa como un acelerador que permite experimentar, aprender y materializar proyectos mucho más rápido.</p>
 
-          <a class="littleblau-link" href="https://littleblau.cat" target="_blank" rel="noreferrer">
+          <a class="littleblau-link" href="https://littleblau.cat" target="_blank" rel="noreferrer" data-ga-event="click_littleblau">
             <span data-es="Descubrir Little Blau" data-en="Discover Little Blau">Descubrir Little Blau</span>
             <span>↗</span>
           </a>
         </div>
 
         <div class="section-nav">
-          <a href="#education" class="section-nav-link" data-es="← Formación" data-en="← Education">← Formación</a>
+          <a href="#how-i-work" class="section-nav-link" data-es="← Cómo trabajo" data-en="← How I work">← Cómo trabajo</a>
           <a href="#contact" class="section-nav-link" data-es="Contacto →" data-en="Contact →">Contacto →</a>
         </div>
       </div>
@@ -491,13 +596,15 @@
         class="btn primary"
         href="https://www.linkedin.com/in/montseax/"
         target="_blank"
-        rel="noreferrer">
+        rel="noreferrer"
+        data-ga-event="click_linkedin">
         LinkedIn
       </a>
 
       <a
         class="btn secondary"
-        href="mailto:montseax23@gmail.com">
+        href="mailto:montseax23@gmail.com"
+        data-ga-event="click_email">
         Email
       </a>
     </div>
@@ -538,6 +645,62 @@
 </footer>
 
 <script src="script.js"></script>
+
+<div id="analytics-consent" class="analytics-consent" role="dialog" aria-live="polite" aria-label="Analytics consent">
+  <p
+    data-es="Utilizo Google Analytics para entender cómo se visita esta web y mejorar su contenido. Solo se activará si aceptas."
+    data-en="I use Google Analytics to understand how this website is visited and improve its content. It will only be activated if you accept.">
+    Utilizo Google Analytics para entender cómo se visita esta web y mejorar su contenido. Solo se activará si aceptas.
+  </p>
+  <div class="analytics-consent-actions">
+    <button type="button" data-consent="reject" data-es="Rechazar" data-en="Reject">Rechazar</button>
+    <button type="button" data-consent="accept" data-es="Aceptar" data-en="Accept">Aceptar</button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const banner = document.getElementById('analytics-consent');
+    const storedConsent = localStorage.getItem('analytics_consent');
+
+    if (!storedConsent) {
+      banner.classList.add('is-visible');
+    }
+
+    banner.querySelector('[data-consent="accept"]').addEventListener('click', function () {
+      localStorage.setItem('analytics_consent', 'accepted');
+      loadGoogleAnalytics();
+      banner.classList.remove('is-visible');
+    });
+
+    banner.querySelector('[data-consent="reject"]').addEventListener('click', function () {
+      localStorage.setItem('analytics_consent', 'rejected');
+      banner.classList.remove('is-visible');
+    });
+
+    // Track selected outbound actions only when Analytics has been accepted.
+    document.querySelectorAll('[data-ga-event]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (localStorage.getItem('analytics_consent') === 'accepted' && typeof gtag === 'function') {
+          gtag('event', link.dataset.gaEvent, {
+            link_url: link.href
+          });
+        }
+      });
+    });
+
+    // Track language switches when Analytics has been accepted.
+    document.querySelectorAll('.lang-btn').forEach(function (button) {
+      button.addEventListener('click', function () {
+        if (localStorage.getItem('analytics_consent') === 'accepted' && typeof gtag === 'function') {
+          gtag('event', 'language_change', {
+            language: button.dataset.lang
+          });
+        }
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
