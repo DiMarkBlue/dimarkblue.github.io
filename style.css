@@ -6,7 +6,7 @@
   justify-content: space-between;
   gap: 28px;
 }.
-..brand {
+.brand {
   font-family: "Manrope", sans-serif !important;
   font-size: 4.3rem !important;
   font-weight: 700 !important;
